@@ -59,6 +59,7 @@ interface CallOptions {
   prompt: string;
   json?: boolean;
   temperature?: number;
+  seed?: number;
 }
 
 export async function callGemini(opts: CallOptions): Promise<string> {
@@ -71,6 +72,7 @@ export async function callGemini(opts: CallOptions): Promise<string> {
     contents: [{ role: "user", parts: [{ text: opts.prompt }] }],
     generationConfig: {
       temperature: opts.temperature ?? 0.7,
+      ...(opts.seed !== undefined && { seed: opts.seed }),
       ...(opts.json !== false && { responseMimeType: "application/json" }),
     },
   });

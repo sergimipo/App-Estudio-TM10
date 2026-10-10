@@ -20,6 +20,7 @@ export const MAX_PER_TYPE = 10;
 export const MAX_TOTAL = 20;
 export const MAX_TOPIC_CHARS = 20000;
 export const MAX_ANSWER_CHARS = 4000;
+export const MAX_AVOID = 40;
 
 export interface Question {
   id: string;

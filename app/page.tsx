@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
+  MAX_AVOID,
   MAX_PER_TYPE,
   MAX_TOPIC_CHARS,
   MAX_TOTAL,
@@ -42,6 +43,50 @@ function verdict(score: number): string {
   return "Incorrecta";
 }
 
+const HISTORY_KEY = "tm10:history:v1";
+
+function topicKey(text: string): string {
+  const s = text.trim();
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0;
+  return String(h);
+}
+
+function readAll(): Record<string, string[]> {
+  try {
+    return JSON.parse(localStorage.getItem(HISTORY_KEY) ?? "{}") || {};
+  } catch {
+    return {};
+  }
+}
+
+function loadHistory(key: string): string[] {
+  const list = readAll()[key];
+  return Array.isArray(list) ? list : [];
+}
+
+function saveHistory(key: string, qs: string[]) {
+  try {
+    const all = readAll();
+    all[key] = [...qs, ...(all[key] ?? [])].slice(0, MAX_AVOID);
+    const keys = Object.keys(all);
+    if (keys.length > 10) delete all[keys[0]];
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(all));
+  } catch {
+    // sin almacenamiento disponible: se sigue sin historial
+  }
+}
+
+function clearHistory(key: string) {
+  try {
+    const all = readAll();
+    delete all[key];
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(all));
+  } catch {
+    // nada que borrar
+  }
+}
+
 async function readJson(res: Response): Promise<Record<string, unknown>> {
   try {
     return await res.json();
@@ -77,6 +122,11 @@ export default function Home() {
   const [responses, setResponses] = useState<Record<string, Resp>>({});
   const [busy, setBusy] = useState<"" | "generating" | "grading">("");
   const [error, setError] = useState("");
+  const [seen, setSeen] = useState(0);
+
+  useEffect(() => {
+    setSeen(topic.trim() ? loadHistory(topicKey(topic)).length : 0);
+  }, [topic]);
 
   const total = TYPE_ORDER.reduce((s, t) => s + counts[t], 0);
   const getR = (id: string): Resp => responses[id] ?? EMPTY;
@@ -109,7 +159,7 @@ export default function Home() {
       const res = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic, counts }),
+        body: JSON.stringify({ topic, counts, avoid: loadHistory(topicKey(topic)) }),
       });
       const data = await readJson(res);
       if (!res.ok) {
@@ -117,7 +167,10 @@ export default function Home() {
           (data.error as string) ?? `No se pudieron generar las preguntas (error ${res.status}).`
         );
       }
-      setQuestions(data.questions as Question[]);
+      const generated = data.questions as Question[];
+      saveHistory(topicKey(topic), generated.map((g) => g.question));
+      setSeen(loadHistory(topicKey(topic)).length);
+      setQuestions(generated);
       setResponses({});
       setIdx(0);
       setStage("quiz");
@@ -253,9 +306,28 @@ export default function Home() {
           {total} {total === 1 ? "pregunta" : "preguntas"} en total (máximo {MAX_TOTAL}).
         </p>
 
-        <button className="btn" type="button" onClick={generate} disabled={busy !== ""}>
-          {busy === "generating" ? "Generando preguntas…" : "Generar preguntas"}
-        </button>
+        <div className="actions">
+          <button className="btn" type="button" onClick={generate} disabled={busy !== ""}>
+            {busy === "generating" ? "Generando preguntas…" : "Generar preguntas"}
+          </button>
+          {seen > 0 && (
+            <button
+              className="btn secondary"
+              type="button"
+              onClick={() => {
+                clearHistory(topicKey(topic));
+                setSeen(0);
+              }}
+            >
+              Olvidar las {seen} preguntas anteriores
+            </button>
+          )}
+        </div>
+        {seen > 0 && (
+          <p className="total-line">
+            Las nuevas preguntas evitarán las que ya has hecho con este tema.
+          </p>
+        )}
 
         {error && (
           <p className="error" role="alert">
