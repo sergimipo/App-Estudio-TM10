@@ -279,13 +279,3 @@ Cuando el pistón se sitúa en el PMS, el gas se comprime ocupando
 La relación existente entre estos dos volúmenes se denomina
 relación de compresión, y de ella dependen la presión y la
 temperatura final de compresión.
-Problema
-Un motor de quatre cilindres té una carrera de 99 mm i un diàmetre de 89 mm, el volum de la cambra de combustió és de 53 cm³.
-Calcula: Vu, Vt i Rc
-Càlculs
-1-Un motor de 4 cilindros tiene una carrera de 85 mm y un diámetro de 80 mm. El volumen de la cámara de combustión es de 45
-cm³ por cilindro.
-2- Un motor de 6 cilindros tiene una carrera de 92 mm y un diámetro de 86 mm. El volumen de la cámara de combustión es de 48
-cm³ por cilindro.
-3- Un motor de 4 cilindros tiene una carrera de 100 mm y un diámetro de 90 mm. El volumen de la cámara de combustión es de 50
-cm³ por cilindro.
