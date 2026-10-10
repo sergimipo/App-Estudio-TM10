@@ -1,0 +1,291 @@
+Mòdul 0452: Motor
+1. Historia del motor
+https://youtu.be/M9gHwjvGJvQ
+El motor de combustión interna se desarrolla como una evolución de la máquina de
+vapor. En este motor el trabajo se obtiene por la combustión interna de una mezcla de
+aire y combustible, a diferencia de la máquina de vapor, que aprovecha la presión del
+vapor de agua que se produce por una combustión externa.
+1863. Primer motor de combustión interna, construido por el francés Etienne Lenoir.
+https://www.youtube.com/watch?v=_8pqRhIwb7M
+1876. Motor mejorado y que funcionaba con el ciclo Otto de 4t. por el alemán Nikolaus
+Otto. En su honor este motor de explosión se denomina motor Otto.
+1878. Primer motor de dos tiempos, construido por el escocés Dugald Clerk.
+1885. Daimler monta sobre un vehículo de dos ruedas un motor de gasolina de alta
+velocidad desarrollado por el ingeniero Maybach. Esta es la primera motocicleta del
+mundo.
+Motor otto 1899
+1886. Karl Benz construye el primer automóvil de tresruedas. Ese mismo
+año Daimler aplica el motor de Maybach sobre un carruaje de cuatro ruedas.
+https://youtu.be/M9gHwjvGJvQ
+1892. El alemán Rudolf Diésel inventa un motor que funciona con
+combustibles pesados y no necesita sistema de encendido, que se llamará
+motor Diésel. Cinco años después, en 1897, se construye el primero de estos
+motores.
+1904. Se fabrica el primer automóvil en Barcelona por la marca Hispano-Suiza equipado con un motor de cuatro cilindros y 20 CV
+de potencia.
+https://www.youtube.com/watch?v=QeSzVi2fRlg
+1912. El primer motor diésel es aplicado en una locomotora.
+1923. El motor diésel es aplicado en un camión.
+1957. El alemán Felix Wankel prueba con éxito un nuevo motor de pistón rotativo
+1997. La marca Toyota comercializa en Japón el primer vehículo
+híbrido, el Prius. A partir del año 2000 comienza a venderse en otros
+mercados. Este vehículo es propulsado por un motor de gasolina y un
+motor eléctrico.
+1.1. El motor térmico de combustión interna
+Los motorestérmicos de combustión interna empleados en automoción deben reunir una serie de
+cualidades:
+• Buen rendimiento, es decir, que transforme en trabajo buena parte de la energía que produce la
+combustión.
+• Bajo consumo con relación a su potencia.
+• Gases de escape poco contaminantes.
+1.2. Clasificación de los motores de combustión interna
+Los motores de combustión interna se pueden clasificar atendiendo a diferentes
+aspectos:
+• Por la forma de iniciar la combustión:
+– Motores Otto.
+– Motores Diésel.
+• Por el ciclo de trabajo:
+– Motores de 4 tiempos.
+– Motores de 2 tiempos.
+• Por el movimiento del pistón:
+– Motores de pistón alternativo.
+– Motores de pistón rotativo.
+1.2.1. Motor Otto (MEP)
+Consume generalmente una mezcla de aire y gasolina que se
+prepara en el exterior de la cámara de combustión. La mezcla se
+inflama por una chispa eléctrica que proporciona un sistema de
+encendido externo.
+Soporta presiones moderadas, por lo que sus componentes son
+ligeros y pueden alcanzar un alto número de revoluciones.
+Consiguen su potencia máxima entre 5.000 y 7.000 revoluciones
+por minuto (rpm).
+Su volumen unitario oscila entre 250 y 500 cm³ por cilindro.
+1.2.2. Motor Diésel (MEC)
+Consume combustibles pesados como el gasóleo. La mezcla se
+realiza en el interior de la cámara de combustión, y se inflama al
+inyectar el combustible sobre el aire calentado por la fuerte
+compresión.
+Las presiones que se producen son muy elevadas y sus
+componentes han de son robustos y pesados por lo que el
+número de revoluciones queda limitado.
+• Los Diésel rápidos pueden alcanzar las 5.500 rpm.
+La cilindrada unitaria está entre 400 y 600 cm³ por cilindro.
+Se emplean en automóviles y vehículos industriales ligeros.
+• Los Diésel lentos giran entre 900 y 2.000 rpm.
+Tienen un volumen de hasta 2 litros por cilindro.
+Se montan en camiones, autobuses, locomotoras, barcos y
+maquinaria pesada.
+1.3. Motor de cuatro tiempos
+• Puede ser Diésel o de explosión (Otto).
+• Su ciclo de trabajo se desarrolla en cuatro tiempos:
+Admisión
+Compresión
+Expansión
+Escape
+*Durante dos vueltas completas de cigüeñal.
+• El intercambio de gases es controlado por válvulas
+que abren y cierran los conductos de admisión y
+escape.
+1.3.1. Motor de dos tiempos
+• Existen motores de dos tiempos Otto y Diésel.
+• En este motor los procesos de carga, compresión,
+combustión y expulsión de los gases se realiza en dos carreras
+del pistón, o sea, en una vuelta de cigüeñal.
+• El intercambio de gases se realiza por medio de lumbreras
+controladas por el pistón
+en su desplazamiento.
+• Los motores Otto de dos tiempos equipan las motocicletas
+de pequeña cilindrada, hasta 350 cm³.
+• Los Diésel de dos tiempos de grandes cilindradas se usan
+como propulsión marina y giran entre 80 y 200 rpm.
+1.4. Motores de pistón alternativo
+Estos motorestransmiten el trabajo mediante pistones, que se desplazan con un movimiento lineal alternativo, y es transformado en
+movimiento de rotación mediante un sistema de biela-manivela.
+Número de cilindros usados habitualmente:
+• Motocicletas.......................de 1 a 4.
+• Automóviles . . . . . . . . . . . de 2 a 6 en línea y de 6 a 8 en V.
+• Camiones . . . . . . . . . . . de 4 a 6 en línea y de 6 a 12 en V.
+1.5. Motor de pistón rotativo
+https://youtu.be/6j6NNDNcKiQ
+También conocido como motor Wankel.
+El movimiento rotativo se genera directamente en un pistón
+de sección triangular que gira dentro de una carcasa
+formando tres cámaras.
+Funciona siguiendo el ciclo de cuatro tiempos de un motor
+Otto. No posee válvulas ya que la admisión y el escape se
+realiza por lumbreras.
+Suempleoactualenautomociónesmuylimitado
+1.6. Motor eléctrico
+El motor eléctrico es una máquina que transforma
+energía eléctrica en energía mecánica. Al ser
+alimentado por una corriente eléctrica se obtiene un
+movimiento giratorio en su eje.
+Los motores eléctricos se han aplicado a la tracción
+en trenes y tranvías (conectados a la red eléctrica) y
+en vehículos que se utilizan en recintos cerrados:
+vehículos de servicio de aeropuertos, campos de golf
+o carretillas elevadoras. En estos casos disponen de
+acumuladores que es necesario recargar.
+Actualmente se está generalizando el desarrollo y comercialización de vehículos eléctricos y vehículos híbridos para uso particular y
+de transporte.
+Para ello ha sido necesario diseñar dispositivos de control electrónico para los motores y acumuladores eléctricos de gran capacidad.
+●Los vehículos totalmente eléctricos utilizan el motor eléctrico como único propulsor.
+●Los vehículos híbridos combinan un motor térmico y otro eléctrico.
+Compresor de aire acondicionado eléctrico
+Motor 1.4. TFSI
+110 KW/250 Nm
+Volante de doble masa
+Motor eléctrico
+75 KW/330 Nm
+Doble
+embrague
+Conexiones de alto voltaje
+Caja do cambios
+de 6 velocidades
+e-S tronic
+Salida de liquido refrigerante
+Entrada de liquido retrigerante
+1.7. Constitución del motor de combustión interna de cuatro
+tiempos
+A continuación se representan los componentes fundamentales del
+motor.
+La estructura básica del motor está formada por el bloque y la culata,
+sobre
+estas piezas se montan todoslos elementos que componen el motor.
+2. Características del motor Otto
+El motor Otto de cuatro tiempos pertenece al grupo
+de motorestérmicos de combustión interna.
+Consume una mezcla de aire y combustible que ha
+sido previamente preparada.
+Dispone de un sistema de encendido eléctrico, cuya
+chispa inflama la mezcla que se encuentra
+comprimida en la cámara de combustión. Los
+procesos de admisión de la mezcla y posterior
+expulsión de los gases quemados están controlados
+por las válvulas, que abren y cierran los conductos
+correspondientes mandados por el sistema de
+distribución.
+Su ciclo de funcionamiento se realiza en
+cuatro tiempos:
+• Admisión de una mezcla de aire y
+combustible.
+• Compresión de la misma.
+• Encendido, combustión y expansión.
+• Escape de los gases quemados.
+Cada uno de estos cuatro tiempos se realiza
+en una carrera del pistón, equivalente a media
+vuelta de cigüeñal (180°). Por tanto, el ciclo
+se completa en dos vueltas de cigüeñal
+(720°).
+2.1. Combustible
+Como combustible se usa generalmente la gasolina. Este derivado
+del petróleo tiene una densidad de 0,71 a 0,76 kg/L a 15 °C y posee
+un alto poder calorífico, aproximadamente 44.000 kJ/kg (10.400
+kcal por cada kg de gasolina).
+Es muy volátil luego se gasifica con facilidad, lo que favorece la
+unión con el oxígeno del aire para formar la mezcla. La volatilidad
+mejora a medida que aumenta la temperatura.
+Otra característica importante de la gasolina es el índice de
+octano, que define su poder antidetonante, es decir, la
+temperatura que puede alcanzar cuando se comprime sin
+que llegue a autoencenderse. A medida que aumenta el
+índice de octano, disminuye el riesgo de autoencendido.
+El autoencendido se produce cuando el combustible se
+inflama de forma espontánea, independientemente del
+encendido por chispa. Este fenómeno resulta perjudicial para
+el motor por producirse de forma incontrolada.
+El grado de compresión a que puede ser sometida la mezcla
+dentro del cilindro, y por tanto la relación de compresión,
+está en función de la resistencia antidetonante del
+combustible empleado.
+2.2. Preparación de la mezcla
+El combustible ha de mezclarse con el aire, ya que este aporta el
+oxígeno necesario para realizar la combustión; los dos elementos se
+combinan en una proporción aproximada de 1 kg de gasolina por
+cada 14,7 kg de aire. La unión debe ser lo mas homogénea posible,
+es decir, la gasolina vaporizada debe distribuirse uniformemente en
+el aire para garantizar una combustión completa. La proporción
+puede variar entre una mezcla pobre de máximo rendimiento
+(18/1), y una rica de máxima potencia (12,5/1).
+La mezcla se realiza antes de introducirla en el cilindro; su
+homogeneidad mejora durante el proceso de admisión y, ya dentro
+del cilindro, durante la compresión.
+El sistema de inyección de gasolina dosifica y
+pulveriza el combustible mezclándolo con el aire que
+está pasando a gran velocidad por el colector de
+admisión. Los modernos sistemas de inyección
+electrónica de gasolina sustituyen al carburador, que
+está dejando de ser usado por su falta de precisión
+para dosificar el combustible. Por tanto, la mezcla se
+realiza en el conducto de admisión y es arrastrada al
+interior del cilindro durante el proceso de admisión
+para después ser comprimida.
+2.3. Encendido
+La combustión se inicia por el salto de una chispa eléctrica
+en la bujía que proporciona el sistema de encendido en el
+instante adecuado.
+El encendido se produce al final de la compresión, momentos
+antes de que el pistón llegue a su punto muerto superior
+(PMS). Este efecto se conoce como avance del encendido, y
+es necesario para compensar el tiempo que la llama tarda en
+propagarse y generar una alta presión.
+La presión máxima de combustión debe aplicarse sobre la
+cabeza del pistón cuando este ha superado el PMS.
+2.4. Regulación de la carga
+Según las necesidades se regula la cantidad de mezcla
+admitida en el motor, pero manteniendo
+aproximadamente la misma proporción.
+La regulación se efectúa mediante una mariposa de
+gases, dispuesta en el colector de admisión, que es
+mandada por el pedal acelerador. A medida que la
+mariposa se abre permite el paso de una mayor cantidad
+de mezcla, aumentando así la energía obtenida en la
+combustión.
+2.5. Constitución del motor Otto
+https://youtu.be/b6oWKEKfadQ
+El motor Otto está formado por un pistón o émbolo de movimiento alternativo y un sistema de biela y cigüeñal, encargado de
+transformar el movimiento lineal del pistón en movimiento de rotación.
+El pistón se desplaza dentro del cilindro; la estanqueidad entre estos dos elementos está asegurada por unos anillos elásticos, que se
+montan en el pistón, llamados segmentos.
+En la parte superior del cilindro se forma la cámara de
+combustión donde se comprime y se quema la mezcla, en su
+interior se disponen las válvulas de admisión y escape y la bujía
+de encendido.
+La parte central constituye el armazón del motor y se denomina
+bloque, en su parte superior se fija la culata y la inferior queda
+cerrada por el cárter.
+2.6. Desplazamiento del pistón
+La carrera es la distancia que recorre el pistón entre estos
+dos puntos.
+El volumen del cilindro es el espacio que se genera
+cuando el pistón se desplaza desde el PMS al PMI. Está,
+por tanto, en función de la carrera y del diámetro del
+cilindro.
+Para calcular la cilindrada total (V) bastará multiplicar el
+volumen unitario por el número total de cilindros (N).
+Càlculs
+1. Calcula la cilindrada o volum total d'un vehicle de 4 cilindres, amb un diàmetre de 99 mm i una cursa
+de 89.mm
+2. Calcula la cilindrada o volum total d'un vehicle monocilindric amb un diàmetre de 98 mm i una cursa
+de 97.mm
+3. Calcula la cilindrada o volum total d'un vehicle bicilindric, amb un diàmetre de 86 mm i una cursa de
+88.mm
+2.7. Relación de compresión
+https://www.youtube.com/watch?v=fIjiUysNySI
+Al final de la admisión, cuando el pistón se encuentra en el PMI, el
+gas ocupa todo el volumen del interior del cilindro (Vu + Vc).
+Cuando el pistón se sitúa en el PMS, el gas se comprime ocupando
+únicamente el volumen de la cámara de combustión (Vc).
+La relación existente entre estos dos volúmenes se denomina
+relación de compresión, y de ella dependen la presión y la
+temperatura final de compresión.
+Problema
+Un motor de quatre cilindres té una carrera de 99 mm i un diàmetre de 89 mm, el volum de la cambra de combustió és de 53 cm³.
+Calcula: Vu, Vt i Rc
+Càlculs
+1-Un motor de 4 cilindros tiene una carrera de 85 mm y un diámetro de 80 mm. El volumen de la cámara de combustión es de 45
+cm³ por cilindro.
+2- Un motor de 6 cilindros tiene una carrera de 92 mm y un diámetro de 86 mm. El volumen de la cámara de combustión es de 48
+cm³ por cilindro.
+3- Un motor de 4 cilindros tiene una carrera de 100 mm y un diámetro de 90 mm. El volumen de la cámara de combustión es de 50
+cm³ por cilindro.
