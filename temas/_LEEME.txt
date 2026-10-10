@@ -1,0 +1,9 @@
+Aqui van los temas que veran tus companeros.
+
+Como anadir un tema:
+1. Crea un archivo .md o .txt en esta carpeta (por ejemplo: tema-3-redes.md).
+2. Pega dentro el texto del tema. Si la primera linea es "# Titulo", ese sera el nombre en la lista;
+   si no, se usa el nombre del archivo.
+3. Sube los cambios a GitHub. Vercel vuelve a desplegar solo y el tema aparece en la web.
+
+Los archivos que empiezan por "_" (como este) no se muestran.

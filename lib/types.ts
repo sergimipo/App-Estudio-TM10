@@ -21,6 +21,7 @@ export const MAX_TOTAL = 20;
 export const MAX_TOPIC_CHARS = 20000;
 export const MAX_ANSWER_CHARS = 4000;
 export const MAX_AVOID = 40;
+export const MAX_SAVED_CHARS = 60000;
 
 export interface Question {
   id: string;

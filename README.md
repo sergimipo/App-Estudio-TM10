@@ -19,6 +19,14 @@ Abre <http://localhost:3000>. Si cambias `.env.local` con el servidor en marcha,
 
 Si no existe `.env.local`, copia `.env.example` con ese nombre.
 
+## Temas guardados para tus compañeros
+
+Pon los temas como archivos `.md` o `.txt` en la carpeta `temas/` y sube los cambios a GitHub.
+Vercel vuelve a desplegar solo y la web los muestra en una lista: tus compañeros eligen uno y generan
+preguntas sin pegar nada. Si la primera línea es `# Título`, ese es el nombre en la lista; si no, se usa
+el nombre del archivo. Los archivos que empiezan por `_` no se muestran. Si no hay ningún tema,
+la web ofrece solo el cuadro para pegar texto.
+
 ## Estructura
 
 ```

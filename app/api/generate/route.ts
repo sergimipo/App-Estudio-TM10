@@ -1,9 +1,11 @@
 import { AIError, MODELS, callGemini, parseJson } from "@/lib/ai";
 import { pickFocus } from "@/lib/focus";
 import { allow } from "@/lib/ratelimit";
+import { getTopicText } from "@/lib/topics";
 import {
   MAX_AVOID,
   MAX_PER_TYPE,
+  MAX_SAVED_CHARS,
   MAX_TOPIC_CHARS,
   MAX_TOTAL,
   TYPE_ORDER,
@@ -70,20 +72,29 @@ export async function POST(req: Request) {
     );
   }
 
-  let payload: { topic?: unknown; counts?: unknown; avoid?: unknown };
+  let payload: { topic?: unknown; topicId?: unknown; counts?: unknown; avoid?: unknown };
   try {
     payload = await req.json();
   } catch {
     return Response.json({ error: "Petición no válida." }, { status: 400 });
   }
 
-  const topic = typeof payload.topic === "string" ? payload.topic.trim() : "";
+  let topic = typeof payload.topic === "string" ? payload.topic.trim() : "";
+  let limit = MAX_TOPIC_CHARS;
+  if (typeof payload.topicId === "string" && payload.topicId) {
+    const saved = await getTopicText(payload.topicId);
+    if (!saved) {
+      return Response.json({ error: "Ese tema ya no existe." }, { status: 404 });
+    }
+    topic = saved.trim();
+    limit = MAX_SAVED_CHARS;
+  }
   if (topic.length < 20) {
     return Response.json({ error: "El tema es demasiado corto." }, { status: 400 });
   }
-  if (topic.length > MAX_TOPIC_CHARS) {
+  if (topic.length > limit) {
     return Response.json(
-      { error: `El tema supera los ${MAX_TOPIC_CHARS} caracteres.` },
+      { error: `El tema supera los ${limit} caracteres.` },
       { status: 400 }
     );
   }

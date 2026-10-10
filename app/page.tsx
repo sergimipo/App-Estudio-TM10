@@ -123,10 +123,37 @@ export default function Home() {
   const [busy, setBusy] = useState<"" | "generating" | "grading">("");
   const [error, setError] = useState("");
   const [seen, setSeen] = useState(0);
+  const [mode, setMode] = useState<"saved" | "paste">("paste");
+  const [saved, setSaved] = useState<{ id: string; title: string; chars: number }[]>([]);
+  const [savedId, setSavedId] = useState("");
+  const [topicsLoaded, setTopicsLoaded] = useState(false);
+
+  const histKey =
+    mode === "saved" ? (savedId ? `saved:${savedId}` : "") : topic.trim() ? topicKey(topic) : "";
 
   useEffect(() => {
-    setSeen(topic.trim() ? loadHistory(topicKey(topic)).length : 0);
-  }, [topic]);
+    let alive = true;
+    fetch("/api/topics")
+      .then((r) => r.json())
+      .then((d) => {
+        if (!alive) return;
+        const list = Array.isArray(d.topics) ? d.topics : [];
+        setSaved(list);
+        if (list.length > 0) {
+          setMode("saved");
+          setSavedId(list[0].id);
+        }
+      })
+      .catch(() => undefined)
+      .finally(() => alive && setTopicsLoaded(true));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    setSeen(histKey ? loadHistory(histKey).length : 0);
+  }, [histKey]);
 
   const total = TYPE_ORDER.reduce((s, t) => s + counts[t], 0);
   const getR = (id: string): Resp => responses[id] ?? EMPTY;
@@ -145,7 +172,11 @@ export default function Home() {
   }
 
   async function generate() {
-    if (topic.trim().length < 40) {
+    if (mode === "saved" && !savedId) {
+      setError("Elige un tema de la lista.");
+      return;
+    }
+    if (mode === "paste" && topic.trim().length < 40) {
       setError("Pega un tema algo más largo (al menos 40 caracteres).");
       return;
     }
@@ -159,7 +190,11 @@ export default function Home() {
       const res = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ topic, counts, avoid: loadHistory(topicKey(topic)) }),
+        body: JSON.stringify({
+          ...(mode === "saved" ? { topicId: savedId } : { topic }),
+          counts,
+          avoid: loadHistory(histKey),
+        }),
       });
       const data = await readJson(res);
       if (!res.ok) {
@@ -168,8 +203,8 @@ export default function Home() {
         );
       }
       const generated = data.questions as Question[];
-      saveHistory(topicKey(topic), generated.map((g) => g.question));
-      setSeen(loadHistory(topicKey(topic)).length);
+      saveHistory(histKey, generated.map((g) => g.question));
+      setSeen(loadHistory(histKey).length);
       setQuestions(generated);
       setResponses({});
       setIdx(0);
@@ -255,23 +290,71 @@ export default function Home() {
           Pega un tema y practica con preguntas generadas por IA. Siempre verás la solución.
         </p>
 
-        <label className="field-label" htmlFor="topic">
-          Tema
-        </label>
-        <textarea
-          id="topic"
-          className="topic"
-          value={topic}
-          maxLength={MAX_TOPIC_CHARS}
-          onChange={(e) => setTopic(e.target.value)}
-          placeholder="Pega aquí los apuntes o el texto que quieres estudiar."
-        />
-        <div className="meta-row">
-          <span>Las preguntas se basan solo en este texto.</span>
-          <span>
-            {topic.length.toLocaleString("es-ES")} / {MAX_TOPIC_CHARS.toLocaleString("es-ES")}
-          </span>
-        </div>
+        {topicsLoaded && saved.length > 0 && (
+          <div className="actions" role="group" aria-label="Origen del tema">
+            <button
+              type="button"
+              className={mode === "saved" ? "btn" : "btn secondary"}
+              aria-pressed={mode === "saved"}
+              onClick={() => setMode("saved")}
+            >
+              Temas guardados
+            </button>
+            <button
+              type="button"
+              className={mode === "paste" ? "btn" : "btn secondary"}
+              aria-pressed={mode === "paste"}
+              onClick={() => setMode("paste")}
+            >
+              Pegar texto
+            </button>
+          </div>
+        )}
+
+        {mode === "saved" ? (
+          <>
+            <p className="field-label topic-gap">Elige un tema</p>
+            <ul className="options">
+              {saved.map((t) => (
+                <li key={t.id}>
+                  <button
+                    type="button"
+                    className={`option${t.id === savedId ? " selected" : ""}`}
+                    aria-pressed={t.id === savedId}
+                    onClick={() => setSavedId(t.id)}
+                  >
+                    <span>
+                      {t.title}
+                      <span className="count-hint">
+                        {t.chars.toLocaleString("es-ES")} caracteres
+                      </span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <>
+            <label className="field-label topic-gap" htmlFor="topic">
+              Tema
+            </label>
+            <textarea
+              id="topic"
+              className="topic"
+              value={topic}
+              maxLength={MAX_TOPIC_CHARS}
+              onChange={(e) => setTopic(e.target.value)}
+              placeholder="Pega aquí los apuntes o el texto que quieres estudiar."
+            />
+            <div className="meta-row">
+              <span>Las preguntas se basan solo en este texto.</span>
+              <span>
+                {topic.length.toLocaleString("es-ES")} / {MAX_TOPIC_CHARS.toLocaleString("es-ES")}
+              </span>
+            </div>
+          </>
+        )}
 
         <ul className="counts" aria-label="Número de preguntas por tipo">
           {TYPE_ORDER.map((t) => (
@@ -315,7 +398,7 @@ export default function Home() {
               className="btn secondary"
               type="button"
               onClick={() => {
-                clearHistory(topicKey(topic));
+                clearHistory(histKey);
                 setSeen(0);
               }}
             >
